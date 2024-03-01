@@ -8,7 +8,7 @@ to N*M patches. For example, DY=4, DX=3, we will get 12 patches.
 
 Finally, we try to get the masks denoted where cells' location.
 
-![cellpose](pictures\Figure 1.png)
+![cellpose](https://github.com/ChenYouyuan2020/get_cellpose_mask/edit/master/pictures/Figure 1.png)
 
 ### install
 ref requirements.txt
@@ -30,7 +30,7 @@ turn to be (picture: 1500 X 600) X (10 patches)
 command in Terminal: `python get_gene_masks --path data\demo_fluo.h5 --cellpose_mask_path data\cellpose_masks.txt --save_flod data` \
 
 * you well get files :*scatter_mask.txt, incell_mask.txt, ingroup_mask.txt* as demo.ipynb shown.
-![Figure2](pictures\Figure 2.png)
-![Figure3](pictures\Figure 3.png)
-![Figure4](pictures\Figure 4.png)
-![Figure5](pictures\Figure 5.png)
+![Figure2](https://github.com/ChenYouyuan2020/get_cellpose_mask/edit/master/pictures/Figure 2.png)
+![Figure3](https://github.com/ChenYouyuan2020/get_cellpose_mask/edit/master/pictures/Figure 3.png)
+![Figure4](https://github.com/ChenYouyuan2020/get_cellpose_mask/edit/master/pictures/Figure 4.png)
+![Figure5](https://github.com/ChenYouyuan2020/get_cellpose_mask/edit/master/pictures/Figure 5.png)
