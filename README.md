@@ -31,6 +31,6 @@ command in Terminal: `python get_gene_masks --path data\demo_fluo.h5 --cellpose_
 
 * you well get files :*scatter_mask.txt, incell_mask.txt, ingroup_mask.txt* as demo.ipynb shown.
 ![Figure2](https://github.com/ChenYouyuan2020/get_cellpose_mask/edit/master/pictures/Figure%202.png)
-![Figure3](https://github.com/ChenYouyuan2020/get_cellpose_mask/edit/master/pictures/Figure 3.png)
-![Figure4](https://github.com/ChenYouyuan2020/get_cellpose_mask/edit/master/pictures/Figure 4.png)
-![Figure5](https://github.com/ChenYouyuan2020/get_cellpose_mask/edit/master/pictures/Figure 5.png)
+![Figure3](https://github.com/ChenYouyuan2020/get_cellpose_mask/edit/master/pictures/Figure%203.png)
+![Figure4](https://github.com/ChenYouyuan2020/get_cellpose_mask/edit/master/pictures/Figure%204.png)
+![Figure5](https://github.com/ChenYouyuan2020/get_cellpose_mask/edit/master/pictures/Figure%205.png)
