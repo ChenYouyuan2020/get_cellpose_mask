@@ -27,7 +27,7 @@ turn to be (picture: 1500 X 600) X (10 patches)
 
 #### **step 2:**
 
-command in Terminal: `python get_gene_masks --path data\demo_fluo.h5 --cellpose_mask_path data\cellpose_masks.txt --save_flod data` \
+command in Terminal: `python get_gene_masks.py --path data\demo_fluo.h5 --cellpose_mask_path data\cellpose_masks.txt --save_flod data` \
 
 * you will get files :*scatter_mask.txt, incell_mask.txt, ingroup_mask.txt* as demo.ipynb shown.
 
