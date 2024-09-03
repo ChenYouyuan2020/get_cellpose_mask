@@ -50,7 +50,7 @@ class Get_cellpose_mask():
             masks = self.cellpose_cut(img_part)
             # merge_mask(patch1, patch2)
             masks[masks != 0] = masks[masks != 0] + num
-            num = num + np.max(masks)
+            num = np.max(masks)
             masks_new[a:c, b:d] = masks
             print("patch from y:(%d，%d), x:(%d,%d) is OK"%(a, c, b, d))
         return masks_new
