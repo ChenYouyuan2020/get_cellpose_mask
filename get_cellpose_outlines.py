@@ -3,12 +3,13 @@ import h5py
 from cellpose import models
 import argparse
 import os
+import cv2
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--path', type=str, default='.\image\merge_new.h5', help='Merge file with fluo and scale')
-parser.add_argument('--divide_y', type=int, default=10, help='Merge file with fluo and scale')
-parser.add_argument('--divide_x', type=int, default=10, help='Merge file with fluo and scale')
-parser.add_argument('--save_flod',type=str, default='.\data',help='path for save.')
+parser.add_argument('--path', type=str, default=r'data\red_part.tif', help='Merge file with fluo and scale')
+parser.add_argument('--divide_y', type=int, default=2, help='Merge file with fluo and scale')
+parser.add_argument('--divide_x', type=int, default=2, help='Merge file with fluo and scale')
+parser.add_argument('--save_flod',type=str, default=r'data',help='path for save.')
 
 args = parser.parse_args()
 PATH = args.path
@@ -52,7 +53,7 @@ class Get_cellpose_mask():
             masks[masks != 0] = masks[masks != 0] + num
             num = np.max(masks)
             masks_new[a:c, b:d] = masks
-            print("patch from y:(%d，%d), x:(%d,%d) is OK"%(a, c, b, d))
+            print("patch from y:(%d，%d), x:(%d,%d) is OK with %d cells "%(a, c, b, d, num))
         return masks_new
     #目前mask之间的合并，被patch分割部分细胞并没有merge,需要优化
     def merge_mask(self, mask1, mask2):
@@ -67,8 +68,17 @@ def read_h5(path):
     print(fluo.shape, fluo_scale)
     return fluo, fluo_ori, fluo_scale
 
-fluo,fluo_ori,fluo_scale = read_h5(PATH)
-CELL_MASK = Get_cellpose_mask(fluo_ori,D_Y,D_X)
-cell_masks = CELL_MASK.masks
-save_path = os.path.join(SAVE_FLOD,"cellpose_masks.txt")
-np.savetxt(save_path, cell_masks, delimiter=',')
+def read_picture(path):
+    fluo_ori = cv2.imread(path,cv2.IMREAD_UNCHANGED)
+    return fluo_ori
+
+if __name__ == '__main__':
+    if PATH.endswith('.h5'):
+        fluo,fluo_ori,fluo_scale = read_h5(PATH)
+    else:
+        fluo_ori = read_picture(PATH)
+    CELL_MASK = Get_cellpose_mask(fluo_ori,D_Y,D_X)
+    cell_masks = CELL_MASK.masks
+    
+    save_path = os.path.join(SAVE_FLOD,"cellpose_masks.txt")
+    np.savetxt(save_path, cell_masks, delimiter=',')
