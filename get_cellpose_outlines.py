@@ -6,9 +6,9 @@ import os
 import cv2
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--path', type=str, default=r'data\red_part.tif', help='Merge file with fluo and scale')
-parser.add_argument('--divide_y', type=int, default=2, help='Merge file with fluo and scale')
-parser.add_argument('--divide_x', type=int, default=2, help='Merge file with fluo and scale')
+parser.add_argument('--path', type=str, default=r'D:\self_file\Large Image 2-st-11-24-3-14-2notd_RGB_DiI.tif', help='Merge file with fluo and scale')
+parser.add_argument('--divide_y', type=int, default=8, help='Merge file with fluo and scale')
+parser.add_argument('--divide_x', type=int, default=8, help='Merge file with fluo and scale')
 parser.add_argument('--save_flod',type=str, default=r'data',help='path for save.')
 
 args = parser.parse_args()
@@ -54,6 +54,7 @@ class Get_cellpose_mask():
             num = np.max(masks)
             masks_new[a:c, b:d] = masks
             print("patch from y:(%d，%d), x:(%d,%d) is OK with %d cells "%(a, c, b, d, num))
+        print("all patch is OK")
         return masks_new
     #目前mask之间的合并，被patch分割部分细胞并没有merge,需要优化
     def merge_mask(self, mask1, mask2):

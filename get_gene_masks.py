@@ -2,6 +2,7 @@ import numpy as np
 import h5py
 import argparse
 import os
+import cv2
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--path',type=str,default='.\outlines.txt', help="the path of merge.h5")
@@ -46,6 +47,10 @@ class Scatter_points():
         fluo_scale = np.array(file['fluo_scale'])
         print(fluo.shape, fluo_scale)
         return fluo, fluo_ori, fluo_scale
+    
+    def read_picture(path):
+        fluo_ori = cv2.imread(path,cv2.IMREAD_UNCHANGED)
+        return fluo_ori
 
     def scatter_masks(self):
         scatter_mask = insert_matrix(self.fluo, self.fluo_scale, self.fluo_ori)
